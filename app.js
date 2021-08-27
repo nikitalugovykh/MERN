@@ -1,17 +1,13 @@
 const express = require('express');
 const config = require('config');
 const mongoose = require('mongoose');
+const authRoute = require('./routes/auth.routes.js');
 
 const app = express();
 
-app.use('/api/auth', require('./routes/auth.routes.js'))
+app.use('/api/auth', authRoute);
 
 const PORT = config.get('port') ?? 5000;
-
-app.get('/', (req, res) => {
-    res.send('<h1>Hello</h1>')
-})
-
 
 async function start() {
     try {
