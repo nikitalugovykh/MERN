@@ -5,7 +5,9 @@
   "main": "app.js",
   "scripts": {
     "server": "nodemon app.js",
-    "start": "node app.js"
+    "start": "node app.js",
+    "client": "npm run start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "keywords": [],
   "author": "Nikita Lugovykh <nikita_lugovykh@mail.ru>",

@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const {check, validationResult} = require('express');
+const {check, validationResult} = require('express-validator');
 const jwt = require('jsonwebtoken');
 const User = require('../models/User.js');
 const bcrypt = require('bcryptjs');
@@ -52,7 +52,7 @@ router.post(
     '/login',
     [
         check('email', 'Введите коректный email').normalizeEmail().isEmail(),
-        check('password','Введите пароль').exist()
+        check('password','Введите пароль').exists()
     ],
     async (req, res) => {
         try {
